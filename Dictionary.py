@@ -1,0 +1,2 @@
+import requests, bs4
+print(*[i.text.replace("SEE MORESEE LESS", "") for i in bs4.BeautifulSoup(requests.get(f"https://www.dictionary.com/browse/{input('Enter word: ')}").content, 'html.parser').find_all('section', class_='css-109x55k e1hk9ate4')], sep="\n")
